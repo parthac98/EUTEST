@@ -1,0 +1,54 @@
+a.acclink {
+    color: #000 !important;
+    text-decoration: none;
+}
+
+a.acclink:hover {
+    color: #FFF !important;
+    text-decoration: none;
+}
+
+.card {
+    border-radius: 6px 6px 0px 0px;
+}
+
+.card-body {
+    background-image: url("src/assets/images/spinning_machine.png");
+    background-repeat: repeat;
+}
+
+.card-header {
+    background-color: #a7a7a7;
+    color: white;
+}
+
+input[type=checkbox]+label {
+    width: 50px;
+}
+
+.scrollableDiv {
+    padding: 10px 10px 10px 10px;
+    height: 385px;
+    overflow-x: scroll;
+    margin-left: 5px;
+}
+
+.specialHeight {
+    min-height: 29px !important;
+    height: 29px !important;
+}
+
+.innerDiv {
+    height: 400px;
+    width: 100%;
+    padding-right: 14px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+}
+
+.sidebox {
+    border: 2px solid #5f5f5f;
+    opacity: 0.8;
+}

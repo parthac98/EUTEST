@@ -1,0 +1,49 @@
+/*{
+  "description": "string",
+  "machineAttributes": [
+    {
+      "attributeId": 0,
+      "attributeName": "string",
+      "attributeValue": "string"
+    }
+  ],
+  "machineId": 0,
+  "machineIdentifier": "string",
+  "machineInspectionScheduleVO": {
+    "deliveryUnitStatus": "string",
+    "inspectionDateTime": 0,
+    "machineIdentifier": "string",
+    "machineTypeId": 0,
+    "noOfDeliveryUnit": 0
+  },
+  "machineMakeId": 0,
+  "machineMakeName": "string",
+  "machineTypeId": 0,
+  "machineTypeName": "string",
+  "processId": 0,
+  "processName": "string",
+  "purchaseDate": 0
+}*/
+
+EventEmitter
+
+$machineIdentifierID = new EventEmitter();
+
+// get Inspection Data
+getInspectionData(machineIdentifierString) {
+  console.log("22 machineIdentifierString : " + machineIdentifierString);
+  this.machineDataService.gettMachineInspectionData(machineIdentifierString).subscribe(response => {
+    this.machineInspectionDataArr = response;
+    console.log("Machine inspection data : " + JSON.stringify(response));
+
+    this.createEveryMachineStatus();
+  });
+}
+
+
+this.machineDataService.$machineIdentifierID.subscribe( (data) => {
+    this.machineIdentifierString = data;
+    console.log("machineIdentifierString : " + this.machineIdentifierString);
+
+    this.getInspectionData();
+  });

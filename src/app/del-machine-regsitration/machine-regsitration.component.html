@@ -1,0 +1,185 @@
+<!-- ============================================================== -->
+<!-- Preloader - style you can find in spinners.css -->
+<!-- ============================================================== -->
+<!-- <div class="preloader">
+    <svg class="circular" viewBox="25 25 50 50">
+        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+</div> -->
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<div id="main-wrapper">
+    <!-- ============================================================== -->
+    <!-- Topbar header - starts - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <app-header></app-header>
+    <!-- ============================================================== -->
+    <!-- Topbar header - ends - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+
+    <div class="page-wrapper-blank">
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            
+        <div class="wrapper d-flex align-items-stretch">
+        
+        <!-- ============================================================== -->
+        <!-- Sidebar - Menu - Starts -->
+        <!-- ============================================================== -->
+        <app-sidebar></app-sidebar>
+        <!-- ============================================================== -->
+        <!-- Sidebar - Menu - Ends -->
+        <!-- ============================================================== -->    
+
+    <!-- Page Content  -->
+        <div class="grid" style="width: 100%">            
+            <div class="container" style="margin-top: 20px !important; padding: 0 20px 20px 30px; overflow: hidden;">
+                <div class="col-12">
+                            <h3><span id="machineTitle">Machine Regsitration</span>
+                                <span class="pull-right" style="padding-bottom: 10px;">  
+                                    <a routerLink='/machine-management' type="button" class="btn btn-dark btn-lg">
+                                        <i class="fa fa-arrow-left" aria-hidden="true"></i> &nbsp; Back
+                                    </a> 
+                                </span>
+                            </h3>
+
+                            <hr>
+                    
+                            <form>
+                                <div class="form-row">	
+                                    <div class="form-group col-6">
+                                    <label for="exampleFormControlSelect2">Process Type <span class="mandetory-field">*</span></label>
+                                        <select class="form-control" id="processTypeID" (change)="getMachineData()">
+                                            <option value="">Select Process Type</option>
+                                            <option *ngFor="let processType of processTypeArr" 
+                                                    [value]="processType.id">{{ processType.name }}</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-6">
+                                    <label for="exampleFormControlSelect1">Machine Type <span class="mandetory-field">*</span></label>
+                                    <select class="form-control" id="machineTypeID" (change)="getMachineMake()">
+                                        <option value="">Select Machine Type</option>
+                                        <option *ngFor="let machineData of machineDataArr" 
+                                                [value]="machineData.id">{{ machineData.name }}</option>
+                                    </select>
+                                    </div>
+                                </div>
+                            
+                                <div class="form-row">
+                                    <div class="form-group col-3" *ngFor="let machineAttr of machineAttrArr">
+                                        <label for="exampleFormControlSelect2">{{ machineAttr["attribute"]["name"] }} <span class="mandetory-field">*</span></label>
+                                        
+                                        <span *ngIf="machineAttr['attribute']['attributeType']== 1">
+                                            <input type="text" class="form-control machineAttribute" attrtype="textbox">
+                                        </span>
+
+                                        <span *ngIf="machineAttr['attribute']['attributeType']== 2">
+                                            <select class="form-control machineAttribute" attrtype="seingleSelect">
+                                                <option>Select</option>
+                                                <option *ngFor="let singleSelect of singleSelectArr" 
+                                                        [value]="singleSelect">{{ singleSelect }}</option>
+                                            </select>
+                                        </span>
+
+                                        <span *ngIf="machineAttr['attribute']['attributeType']== 3" class="machineAttribute" attrtype="multiSelect">
+                                            <mat-form-field appearance="fill" class="example-full-width date-picker-drop-down">
+                                                <mat-select multiple id="multSelect">
+                                                    <mat-option *ngFor="let multySelect of multySelectArr" [value]="multySelect">{{ multySelect }}</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!--<div class="form-row">
+                                    <div class="col-3" style="border:1px solid blue;" *ngFor="let item of machineAttrArr | keyvalue">
+                                        {{item.key}} &nbsp;&nbsp;&nbsp;&nbsp; {{item.value}}
+                                    </div>
+                                </div>-->
+                                
+                                <!--<div class="form-row">
+                                    <div class="form-group col-3">
+                                        <label for="exampleFormControlSelect4">Draft Type</label>
+                                        <select class="form-control" id="exampleFormControlSelect4">
+                                            <option>Standard</option>
+                                            <option>Apron</option>
+                                        </select>
+                                    </div>  
+                                    <div class="form-group col-3">
+                                        <label for="exampleFormControlInput1">No of Rollers</label>
+                                        <input type="email" class="form-control" id="exampleFormControlInput11" placeholder="11">
+                                    </div>	
+                                    <div class="form-group col-3">
+                                        <label for="exampleFormControlInput1">No of Delivery units</label>
+                                        <input type="email" class="form-control" id="exampleFormControlInput12" placeholder="150">
+                                    </div>
+                                    <div class="form-group col-3">
+                                        <label for="exampleFormControlInput1">Machine Identifier</label>
+                                        <input type="email" class="form-control" id="exampleFormControlInput13" placeholder="Spinner 51/2_5">
+                                    </div>
+                                </div>-->
+
+                                <div class="form-row">	
+                                    <div class="col-3">
+                                        <label>Date of Purchase <span class="mandetory-field">*</span></label>
+                                        <mat-form-field appearance="fill" class="example-full-width date-picker-drop-down">
+                                            <mat-label>Date of Purchase </mat-label>
+                                            <input matInput [matDatepicker]="dateOfPurchase" id="machine-purchase-date">
+                                            <mat-datepicker-toggle matSuffix [for]="dateOfPurchase"></mat-datepicker-toggle>
+                                            <mat-datepicker #dateOfPurchase></mat-datepicker>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="form-group col-3">
+                                        <label for="exampleFormControlSelect3">Machine Make <span class="mandetory-field">*</span></label>
+                                        <select class="form-control" id="machineMake">
+                                            <option value="">Select Machine Make</option>
+                                            <option *ngFor="let machineMake of machineMakeArr" 
+                                                    [value]="machineMake.id">{{ machineMake.name }}</option>
+                                        </select>
+                                    </div>	
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1">Machine Descriptions</label>
+                                    <textarea class="form-control" id="machineDesc" rows="10"></textarea>
+                                </div>
+                                
+                                <hr>
+                                
+                                <div class="form-group">
+                                    <button type="button" id="save" class="btn btn-dark btn-lg" (click)="saveMachine()"><i class="fa fa-save" aria-hidden="true"></i> &nbsp; Save</button> &nbsp;     
+                                    <button type="button" id="canc" class="btn btn-dark btn-lg"><i class="fa fa-times" aria-hidden="true"></i> &nbsp; Cancel</button> 	 
+                                </div>
+                            </form>
+
+                    </div>
+
+            </div>
+
+        </div>		
+
+    </div>						
+                    
+        </div>
+
+    <!-- ==== Footer Starts ==== -->
+    <app-footer></app-footer>
+    <!-- ==== Footer Starts ==== -->
+
+        </div>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+    
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    
+</div>
+<!-- ============================================================== -->
+<!-- End Page wrapper  -->
+<!-- ============================================================== -->
+
+<ngx-spinner></ngx-spinner>

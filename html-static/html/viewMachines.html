@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon.ico" />
+    <title>EUTEST</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- You can change the theme colors from here -->
+    <link href="css/colors/blue.css" id="theme" rel="stylesheet" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link
+      href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+      a.acclink {
+        color: #000 !important;
+        text-decoration: none;
+      }
+      a.acclink:hover {
+        color: #fff !important;
+        text-decoration: none;
+      }
+      hr {
+        margin-bottom: 0px !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+      <svg class="circular" viewBox="25 25 50 50">
+        <circle
+          class="path"
+          cx="50"
+          cy="50"
+          r="20"
+          fill="none"
+          stroke-width="2"
+          stroke-miterlimit="10"
+        />
+      </svg>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+      <!-- ============================================================== -->
+      <!-- Topbar header - style you can find in pages.scss -->
+      <!-- ============================================================== -->
+      <header class="topbar" style="position: sticky; top: 0; z-index: 1071">
+        <nav class="navbar top-navbar navbar-toggleable-sm navbar-light">
+          <!-- ============================================================== -->
+          <!-- Logo -->
+          <!-- ============================================================== -->
+          <div class="banner">
+            <p>
+              <img
+                width="50"
+                height="40"
+                alt="EUTEST-Fiber Sourcing to Yarn Delivery"
+                src="assets/rope.svg"
+              />
+              <span class="ban1">EUTEST</span>
+              <span class="ban2"
+                >Fiber <b style="font-size: 15px; color: #fff">2</b> Yarn</span
+              >
+            </p>
+          </div>
+          <!-- ============================================================== -->
+          <!-- End Logo -->
+          <!-- ============================================================== -->
+          <div class="">
+            <!-- ============================================================== -->
+            <!-- toggle and nav items -->
+            <!-- ============================================================== -->
+            <ul class="navbar-nav mr-auto mt-md-0">
+              <!-- This is 
+                        <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)">
+                        <i class="mdi mdi-menu"></i></a> </li>
+                        <!-- ============================================================== -->
+              <!-- Search -->
+              <!-- ============================================================== -->
+              <!-- <li class="nav-item hidden-sm-down search-box"> <a class="nav-link hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a> -->
+              <!--   <form class="app-search">
+                                <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="ti-close"></i></a> </form>
+                                
+                        </li>-->
+            </ul>
+            <!-- ============================================================== -->
+            <!-- User profile and search -->
+            <!-- ============================================================== -->
+            <ul class="navbar-nav my-lg-0">
+              <!-- ============================================================== -->
+              <!-- Profile -->
+              <!-- ============================================================== -->
+              <li class="nav-item">
+                <a class="nav-link text-muted waves-effect waves-dark" href=""
+                  ><img
+                    src="assets/images/users/user-blue1.png"
+                    alt="user"
+                    width="25px"
+                    height="25px"
+                    class="profile-pic m-r-10"
+                  />
+                  Welcome, Administrator</a
+                >
+              </li>
+
+              <li>
+                <a
+                  class="nav-link text-muted waves-effect waves-dark"
+                  href="index.html"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  ><img
+                    src="assets/images/users/logout.png"
+                    alt="logout"
+                    width="25px"
+                    height="25px"
+                    class="profile-pic m-r-10"
+                  />
+                  Logout</a
+                >
+              </li>
+
+              <li>
+                <a
+                  class="nav-link text-muted waves-effect waves-dark"
+                  href="#"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  ><img
+                    src="assets/images/users/globe.png"
+                    alt="logout"
+                    width="25px"
+                    height="25px"
+                    class="profile-pic m-r-10"
+                  />
+                  <select class="selectpicker btn btn-dark" data-width="fit">
+                    <option>English</option>
+                    <option>বাংলা</option>
+                  </select></a
+                >
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+      <div class="page-wrapper-blank">
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+          <div class="wrapper d-flex align-items-stretch">
+            <nav id="sidebar">
+              <div class="custom-menu">
+                <button
+                  type="button"
+                  id="sidebarCollapse"
+                  class="btn btn-primary"
+                >
+                  <i class="fa fa-bars"></i>
+                  <span class="sr-only">Toggle Menu</span>
+                </button>
+              </div>
+              <div class="p-4">
+                <h1>
+                  <a href="dashboard.html" class="logo"
+                    >Dooars <span>Group of Companies</span></a
+                  >
+                </h1>
+                <ul class="list-unstyled components mb-5">
+                  <li>
+                    <a href="#"
+                      ><span class="fa fa-pagelines mr-3"></span> Jute
+                      Sourcing</a
+                    >
+                  </li>
+                  <li class="active">
+                    <a href="#"
+                      ><span class="fa fa-recycle mr-3"></span> E2E Production
+                      Control</a
+                    >
+                    <ul>
+                      <li>
+                        <a href="productionCalendar.html">Shift Management</a>
+                      </li>
+                      <li class="subactive">
+                        <a class="subactive" href="machine.html"
+                          >Machine Management</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><span class="fa fa-truck mr-3"></span> Sales Delivery</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><span class="fa fa-line-chart mr-3"></span> Jute
+                      Stocking</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><span class="fa fa-suitcase mr-3"></span> Yarn
+                      Stocking</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><span class="fa fa-cogs mr-3"></span> Sustainable
+                      Manufacturing</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><span class="fa fa-phone mr-3"></span> Contacts</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </nav>
+
+            <!-- Page Content  -->
+            <div class="grid" style="width: 100%">
+              <div
+                class="container"
+                style="margin-top: 20px !important; padding: 0 20px 20px 30px"
+              >
+                <div class="table-responsive" style="padding-bottom: 6%">
+                  <h3>
+                    View Machines
+                    <span class="pull-right" style="padding-bottom: 10px">
+                      <a
+                        href="machine.html"
+                        type="button"
+                        class="btn btn-dark btn-lg"
+                        ><i class="fa fa-arrow-left" aria-hidden="true"></i>
+                        &nbsp; Back</a
+                      >
+                    </span>
+                  </h3>
+
+                  <table class="table" style="border: 1px solid #eee">
+                    <thead>
+                      <tr>
+                        <th>&nbsp;</th>
+                        <th>Machine Name</th>
+                        <th>Process Name</th>
+                        <th>Machine Make</th>
+                        <th>Date of Purchase</th>
+                        <th>Inspected Date & Time</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="trodd">
+                        <td><input type="radio" name="optradio" /></td>
+                        <td>Root Cutter</td>
+                        <td>Root Cutting</td>
+                        <td>Lagan</td>
+                        <td>02-04-2020</td>
+                        <td>03-04-2020 12:33:12 PM</td>
+                        <td>
+                          <a
+                            href="editMachine.html"
+                            class="btn btn-warning fa fa-pencil-square"
+                          ></a>
+                          <button
+                            class="btn btn-danger fa fa-trash"
+                            data-toggle="modal"
+                            data-target="#deleteModal"
+                          ></button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><input type="radio" name="optradio" /></td>
+                        <td>Emulsion Processor Tank</td>
+                        <td>Emulsion</td>
+                        <td>Jutex</td>
+                        <td>02-04-2020</td>
+                        <td>03-04-2020 11:23:10 AM</td>
+                        <td>
+                          <a
+                            href="editMachine.html"
+                            class="btn btn-warning fa fa-pencil-square"
+                          ></a>
+                          <button
+                            class="btn btn-danger fa fa-trash"
+                            data-toggle="modal"
+                            data-target="#deleteModal"
+                          ></button>
+                        </td>
+                      </tr>
+                      <tr class="trodd">
+                        <td><input type="radio" name="optradio" /></td>
+                        <td>Softener</td>
+                        <td>Softening & Piling</td>
+                        <td>Lagan</td>
+                        <td>02-04-2020</td>
+                        <td>03-04-2020 12:43:09 PM</td>
+                        <td>
+                          <a
+                            href="editMachine.html"
+                            class="btn btn-warning fa fa-pencil-square"
+                          ></a>
+                          <button
+                            class="btn btn-danger fa fa-trash"
+                            data-toggle="modal"
+                            data-target="#deleteModal"
+                          ></button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><input type="radio" name="optradio" /></td>
+                        <td>Inter Card</td>
+                        <td>Inter Carding</td>
+                        <td>Lagan</td>
+                        <td>02-04-2020</td>
+                        <td>03-04-2020 10:03:16 PM</td>
+                        <td>
+                          <a
+                            href="editMachine.html"
+                            class="btn btn-warning fa fa-pencil-square"
+                          ></a>
+                          <button
+                            class="btn btn-danger fa fa-trash"
+                            data-toggle="modal"
+                            data-target="#deleteModal"
+                          ></button>
+                        </td>
+                      </tr>
+                      <tr class="trodd">
+                        <td><input type="radio" name="optradio" /></td>
+                        <td>Finisher Card</td>
+                        <td>Finisher Carding</td>
+                        <td>Jutex</td>
+                        <td>02-04-2020</td>
+                        <td>03-04-2020 12:33:12 PM</td>
+                        <td>
+                          <a
+                            href="editMachine.html"
+                            class="btn btn-warning fa fa-pencil-square"
+                          ></a>
+                          <button
+                            class="btn btn-danger fa fa-trash"
+                            data-toggle="modal"
+                            data-target="#deleteModal"
+                          ></button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><input type="radio" name="optradio" /></td>
+                        <td>4-1/4 Spinning Frame</td>
+                        <td>Spinning</td>
+                        <td>Lagan</td>
+                        <td>02-04-2020</td>
+                        <td>03-04-2020 09:33:12 AM</td>
+                        <td>
+                          <a
+                            href="editMachine.html"
+                            class="btn btn-warning fa fa-pencil-square"
+                          ></a>
+                          <button
+                            class="btn btn-danger fa fa-trash"
+                            data-toggle="modal"
+                            data-target="#deleteModal"
+                          ></button>
+                        </td>
+                      </tr>
+                      <tr class="trodd">
+                        <td><input type="radio" name="optradio" /></td>
+                        <td>Macrol</td>
+                        <td>Spooling</td>
+                        <td>Lagan</td>
+                        <td>02-04-2020</td>
+                        <td>03-04-2020 12:33:12 PM</td>
+                        <td>
+                          <a
+                            href="editMachine.html"
+                            class="btn btn-warning fa fa-pencil-square"
+                          ></a>
+                          <button
+                            class="btn btn-danger fa fa-trash"
+                            data-toggle="modal"
+                            data-target="#deleteModal"
+                          ></button>
+                        </td>
+                      </tr>
+
+                      <tr class="trodd">
+                        <td><input type="radio" name="optradio" /></td>
+                        <td>Cob</td>
+                        <td>Cop Winding</td>
+                        <td>Lagan</td>
+                        <td>02-04-2020</td>
+                        <td>03-04-2020 11:30:19 PM</td>
+                        <td>
+                          <a
+                            href="editMachine.html"
+                            class="btn btn-warning fa fa-pencil-square"
+                          ></a>
+                          <button
+                            class="btn btn-danger fa fa-trash"
+                            data-toggle="modal"
+                            data-target="#deleteModal"
+                          ></button>
+                        </td>
+                      </tr>
+
+                      <tr class="trodd">
+                        <td><input type="radio" name="optradio" /></td>
+                        <td>Reeling</td>
+                        <td>Reeling</td>
+                        <td>Jutex</td>
+                        <td>02-04-2020</td>
+                        <td>03-04-2020 04:31:11 PM</td>
+                        <td>
+                          <a
+                            href="editMachine.html"
+                            class="btn btn-warning fa fa-pencil-square"
+                          ></a>
+                          <button
+                            class="btn btn-danger fa fa-trash"
+                            data-toggle="modal"
+                            data-target="#deleteModal"
+                          ></button>
+                        </td>
+                      </tr>
+
+                      <tr class="trodd">
+                        <td><input type="radio" name="optradio" /></td>
+                        <td>Loading</td>
+                        <td>Frok Lift Machine</td>
+                        <td>Lagan</td>
+                        <td>02-04-2020</td>
+                        <td>03-04-2020 08:13:12 PM</td>
+                        <td>
+                          <a
+                            href="editMachine.html"
+                            class="btn btn-warning fa fa-pencil-square"
+                          ></a>
+                          <button
+                            class="btn btn-danger fa fa-trash"
+                            data-toggle="modal"
+                            data-target="#deleteModal"
+                          ></button>
+                        </td>
+                      </tr>
+
+                      <tr class="trodd">
+                        <td><input type="radio" name="optradio" /></td>
+                        <td>PW</td>
+                        <td>Precision Winding</td>
+                        <td>Lagan</td>
+                        <td>02-04-2020</td>
+                        <td>03-04-2020 04:13:07 PM</td>
+                        <td>
+                          <a
+                            href="editMachine.html"
+                            class="btn btn-warning fa fa-pencil-square"
+                          ></a>
+                          <button
+                            class="btn btn-danger fa fa-trash"
+                            data-toggle="modal"
+                            data-target="#deleteModal"
+                          ></button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="footer" style="position: fixed; text-align: center">
+          © 2020 EUTEST | Fiber Sourcing to Yarn Delivery
+        </footer>
+      </div>
+      <!-- ============================================================== -->
+      <!-- End PAge Content -->
+      <!-- ============================================================== -->
+
+      <!-- ============================================================== -->
+      <!-- End Container fluid  -->
+      <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
+
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+
+    <script src="assets/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="assets/plugins/bootstrap/js/tether.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="js/sidebarmenu.js"></script>
+
+    <script src="assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+
+    <script src="js/custom.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+
+    <script>
+      $(function () {
+        $("#datepickerStart")
+          .datepicker({
+            autoclose: true,
+            todayHighlight: true,
+          })
+          .datepicker("update", new Date());
+      });
+
+      $(function () {
+        $("#datepickerEnd")
+          .datepicker({
+            autoclose: true,
+            todayHighlight: true,
+          })
+          .datepicker("update", new Date());
+      });
+    </script>
+  </body>
+</html>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="deleteModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="deleteModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Delete Record</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Do you really want to Delete this Record?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark btn-block">Yes</button>
+        <button
+          type="button"
+          class="btn btn-dark btn-block"
+          data-dismiss="modal"
+        >
+          No
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

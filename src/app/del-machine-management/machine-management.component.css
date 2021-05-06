@@ -1,0 +1,9 @@
+a.acclink {
+    color: #000 !important;
+    text-decoration: none;
+}
+a.acclink:hover {
+    color: #FFF !important;
+    text-decoration: none;
+}
+hr{margin-bottom: 0px !important;}

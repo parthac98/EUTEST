@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon.ico" />
+    <title>EUTEST</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- You can change the theme colors from here -->
+    <link href="css/colors/blue.css" id="theme" rel="stylesheet" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+      a.acclink {
+        color: #000 !important;
+        text-decoration: none;
+      }
+      a.acclink:hover {
+        color: #fff !important;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+      <svg class="circular" viewBox="25 25 50 50">
+        <circle
+          class="path"
+          cx="50"
+          cy="50"
+          r="20"
+          fill="none"
+          stroke-width="2"
+          stroke-miterlimit="10"
+        />
+      </svg>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+      <!-- ============================================================== -->
+      <!-- Topbar header - style you can find in pages.scss -->
+      <!-- ============================================================== -->
+      <header class="topbar" style="position: sticky; top: 0; z-index: 1071">
+        <nav class="navbar top-navbar navbar-toggleable-sm navbar-light">
+          <!-- ============================================================== -->
+          <!-- Logo -->
+          <!-- ============================================================== -->
+          <div class="banner">
+            <p>
+              <img
+                width="50"
+                height="40"
+                alt="EUTEST-Fiber Sourcing to Yarn Delivery"
+                src="assets/rope.svg"
+              />
+              <span class="ban1">EUTEST</span>
+              <span class="ban2"
+                >Fiber <b style="font-size: 15px; color: #fff">2</b> Yarn</span
+              >
+            </p>
+          </div>
+          <!-- ============================================================== -->
+          <!-- End Logo -->
+          <!-- ============================================================== -->
+          <div class="">
+            <!-- ============================================================== -->
+            <!-- toggle and nav items -->
+            <!-- ============================================================== -->
+            <ul class="navbar-nav mr-auto mt-md-0">
+              <!-- This is 
+                        <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)">
+                        <i class="mdi mdi-menu"></i></a> </li>
+                        <!-- ============================================================== -->
+              <!-- Search -->
+              <!-- ============================================================== -->
+              <!-- <li class="nav-item hidden-sm-down search-box"> <a class="nav-link hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a> -->
+              <!--   <form class="app-search">
+                                <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="ti-close"></i></a> </form>
+                                
+                        </li>-->
+            </ul>
+            <!-- ============================================================== -->
+            <!-- User profile and search -->
+            <!-- ============================================================== -->
+            <ul class="navbar-nav my-lg-0">
+              <!-- ============================================================== -->
+              <!-- Profile -->
+              <!-- ============================================================== -->
+              <li class="nav-item">
+                <a class="nav-link text-muted waves-effect waves-dark" href=""
+                  ><img
+                    src="assets/images/users/user-blue1.png"
+                    alt="user"
+                    width="25px"
+                    height="25px"
+                    class="profile-pic m-r-10"
+                  />
+                  Welcome, Administrator</a
+                >
+              </li>
+
+              <li>
+                <a
+                  class="nav-link text-muted waves-effect waves-dark"
+                  href="index.html"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  ><img
+                    src="assets/images/users/logout.png"
+                    alt="logout"
+                    width="25px"
+                    height="25px"
+                    class="profile-pic m-r-10"
+                  />
+                  Logout</a
+                >
+              </li>
+
+              <li>
+                <a
+                  class="nav-link text-muted waves-effect waves-dark"
+                  href="#"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  ><img
+                    src="assets/images/users/globe.png"
+                    alt="logout"
+                    width="25px"
+                    height="25px"
+                    class="profile-pic m-r-10"
+                  />
+                  <select class="selectpicker btn btn-dark" data-width="fit">
+                    <option>English</option>
+                    <option>বাংলা</option>
+                  </select></a
+                >
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+      <div class="page-wrapper-blank">
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+          <div class="wrapper d-flex align-items-stretch">
+            <nav id="sidebar">
+              <div class="custom-menu">
+                <button
+                  type="button"
+                  id="sidebarCollapse"
+                  class="btn btn-primary"
+                >
+                  <i class="fa fa-bars"></i>
+                  <span class="sr-only">Toggle Menu</span>
+                </button>
+              </div>
+              <div class="p-4">
+                <h1>
+                  <a href="dashboard.html" class="logo"
+                    >Dooars <span>Group of Companies</span></a
+                  >
+                </h1>
+                <ul class="list-unstyled components mb-5">
+                  <li>
+                    <a href="#"
+                      ><span class="fa fa-pagelines mr-3"></span> Jute
+                      Sourcing</a
+                    >
+                  </li>
+                  <li class="active">
+                    <a href="#"
+                      ><span class="fa fa-recycle mr-3"></span> E2E Production
+                      Control</a
+                    >
+                    <ul>
+                      <li class="subactive">
+                        <a class="subactive" href="productionCalendar.html"
+                          >Shift Management</a
+                        >
+                      </li>
+                      <li><a href="machine.html">Machine Management</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><span class="fa fa-truck mr-3"></span> Sales Delivery</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><span class="fa fa-line-chart mr-3"></span> Jute
+                      Stocking</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><span class="fa fa-suitcase mr-3"></span> Yarn
+                      Stocking</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><span class="fa fa-cogs mr-3"></span> Sustainable
+                      Manufacturing</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><span class="fa fa-phone mr-3"></span> Contacts</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </nav>
+
+            <!-- Page Content  -->
+            <div class="grid" style="width: 100%">
+              <div
+                class="container"
+                style="margin-top: 20px !important; padding: 0 20px 20px 30px"
+              >
+                <div
+                  class="panel-group"
+                  id="accordion"
+                  role="tablist"
+                  aria-multiselectable="true"
+                >
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                      <h4 class="panel-title">
+                        <a
+                          role="button"
+                          data-toggle="collapse"
+                          data-parent="#accordion"
+                          href="#collapseOne"
+                          aria-expanded="true"
+                          aria-controls="collapseOne"
+                          class="collapsed acclink"
+                        >
+                          <i class="more-less glyphicon glyphicon-minus"></i>
+                          &nbsp;Production Shift Data
+                        </a>
+                      </h4>
+                    </div>
+                    <div
+                      id="collapseOne"
+                      class="panel-collapse collapse show"
+                      role="tabpanel"
+                      aria-labelledby="headingOne"
+                    >
+                      <div class="panel-body">
+                        <div>
+                          <div
+                            class="card"
+                            style="width: 100%; background: #17a2b8"
+                          >
+                            <div class="card-block">
+                              <div class="row">
+                                <div class="col-4">
+                                  <label>Start Date: </label>
+                                  <div
+                                    id="datepickerStart"
+                                    class="input-group date"
+                                    data-date-format="mm-dd-yyyy"
+                                  >
+                                    <input
+                                      class="form-control"
+                                      type="text"
+                                      readonly
+                                    />
+                                    <span class="input-group-addon"
+                                      ><i
+                                        class="fa fa-calendar"
+                                        aria-hidden="true"
+                                      ></i
+                                    ></span>
+                                  </div>
+                                </div>
+
+                                <div class="col-4">
+                                  <label>End Date: </label>
+                                  <div
+                                    id="datepickerEnd"
+                                    class="input-group date"
+                                    data-date-format="mm-dd-yyyy"
+                                  >
+                                    <input
+                                      class="form-control"
+                                      type="text"
+                                      readonly
+                                    />
+                                    <span class="input-group-addon"
+                                      ><i
+                                        class="fa fa-calendar"
+                                        aria-hidden="true"
+                                      ></i
+                                    ></span>
+                                  </div>
+                                </div>
+
+                                <div class="col-4" style="padding-top: 30px">
+                                  <button
+                                    type="button"
+                                    class="btn btn-dark btn-lg"
+                                  >
+                                    <span class="fa fa-search"></span>&nbsp;
+                                    Search
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <br />
+
+                        <div class="table-responsive">
+                          <h3>
+                            Shifting Data for the Month of May'2020
+                            <span
+                              class="pull-right"
+                              style="padding-bottom: 10px"
+                            >
+                              <button type="button" class="btn btn-dark btn-lg">
+                                <span class="fa fa-edit"></span> &nbsp; Update
+                                Shift
+                              </button>
+                              <button type="button" class="btn btn-dark btn-lg">
+                                <span class="fa fa-download"></span> &nbsp;
+                                Download PDF
+                              </button>
+                              <button type="button" class="btn btn-dark btn-lg">
+                                <i class="fa fa-share-alt-square"></i> &nbsp;
+                                Share
+                              </button>
+                            </span>
+                          </h3>
+                          <table class="table" style="border: 1px solid #eee">
+                            <thead>
+                              <tr>
+                                <th>&nbsp;</th>
+                                <th>Date</th>
+                                <th>WeekDay</th>
+                                <th>Shaift-A</th>
+                                <th>Shaift-B</th>
+                                <th>Shaift-C</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr class="trodd">
+                                <td><input type="radio" name="optradio" /></td>
+                                <td>2-May-2020</td>
+                                <td>Sunday</td>
+                                <td>Maintenance Shift</td>
+                                <td>Off Shift</td>
+                                <td>Off Shift</td>
+                              </tr>
+                              <tr>
+                                <td><input type="radio" name="optradio" /></td>
+                                <td>3-May-2020</td>
+                                <td>Monday</td>
+                                <td>Production Shift</td>
+                                <td>Production Shift</td>
+                                <td>Production Shift</td>
+                              </tr>
+                              <tr class="trodd">
+                                <td><input type="radio" name="optradio" /></td>
+                                <td>4-May-2020</td>
+                                <td>Tuesday</td>
+                                <td>Production Shift</td>
+                                <td>Production Shift</td>
+                                <td>Production Shift</td>
+                              </tr>
+                              <tr>
+                                <td><input type="radio" name="optradio" /></td>
+                                <td>5-May-2020</td>
+                                <td>Wednesday</td>
+                                <td>Production Shift</td>
+                                <td>Production Shift</td>
+                                <td>Production Shift</td>
+                              </tr>
+                              <tr class="trodd">
+                                <td><input type="radio" name="optradio" /></td>
+                                <td>6-May-2020</td>
+                                <td>Thursday</td>
+                                <td>Holiday Shift</td>
+                                <td>Holiday Shift</td>
+                                <td>Holiday Shift</td>
+                              </tr>
+                              <tr>
+                                <td><input type="radio" name="optradio" /></td>
+                                <td>7-May-2020</td>
+                                <td>Friday</td>
+                                <td>Production Shift</td>
+                                <td>Production Shift</td>
+                                <td>Production Shift</td>
+                              </tr>
+                              <tr class="trodd">
+                                <td><input type="radio" name="optradio" /></td>
+                                <td>8-May-2020</td>
+                                <td>Friday</td>
+                                <td>Production Shift</td>
+                                <td>Production Shift</td>
+                                <td>Production Shift</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="panel panel-default" style="padding-bottom: 20px">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                      <h4 class="panel-title">
+                        <a
+                          class="collapsed acclink"
+                          role="button"
+                          data-toggle="collapse"
+                          data-parent="#accordion"
+                          href="#collapseTwo"
+                          aria-expanded="false"
+                          aria-controls="collapseTwo"
+                        >
+                          <i class="more-less glyphicon glyphicon-plus"></i>
+                          &nbsp; Shift Category & Graph
+                        </a>
+                      </h4>
+                    </div>
+                    <div
+                      id="collapseTwo"
+                      class="panel-collapse collapse"
+                      role="tabpanel"
+                      aria-labelledby="headingTwo"
+                    >
+                      <div class="panel-body">
+                        <div
+                          class="row"
+                          style="width: 100%; padding-bottom: 5%"
+                        >
+                          <div class="col-sm-6">
+                            <div class="card" style="width: 100%">
+                              <div class="card-block">
+                                <h5 class="card-title">
+                                  Shift Category
+                                  <span class="card-subtitle pull-right"
+                                    >Total No of Shifts <code>81</code></span
+                                  >
+                                </h5>
+
+                                <div class="row px-2">
+                                  <div
+                                    class="progress"
+                                    style="
+                                      width: 98%;
+                                      margin: 10px 10px;
+                                      height: 20px;
+                                    "
+                                  >
+                                    <div
+                                      class="progress-bar bg-primary"
+                                      role="progressbar"
+                                      style="
+                                        width: 79%;
+                                        height: 20px;
+                                        font-size: 12px;
+                                        color: #000;
+                                      "
+                                      aria-valuenow="79"
+                                      aria-valuemin="0"
+                                      aria-valuemax="100"
+                                    >
+                                      &nbsp;Production Shift-79% (64)
+                                    </div>
+                                  </div>
+
+                                  <div
+                                    class="progress"
+                                    style="
+                                      width: 98%;
+                                      margin: 10px 10px;
+                                      height: 20px;
+                                    "
+                                  >
+                                    <div
+                                      class="progress-bar bg-success"
+                                      role="progressbar"
+                                      style="
+                                        width: 6%;
+                                        height: 20px;
+                                        font-size: 12px;
+                                        color: #000;
+                                      "
+                                      aria-valuenow="6"
+                                      aria-valuemin="0"
+                                      aria-valuemax="100"
+                                    >
+                                      &nbsp;Holiday Shift-7% (6)
+                                    </div>
+                                  </div>
+
+                                  <div
+                                    class="progress"
+                                    style="
+                                      width: 98%;
+                                      margin: 10px 10px;
+                                      height: 20px;
+                                    "
+                                  >
+                                    <div
+                                      class="progress-bar bg-warning"
+                                      role="progressbar"
+                                      style="
+                                        width: 2%;
+                                        height: 20px;
+                                        font-size: 12px;
+                                        color: #000;
+                                      "
+                                      aria-valuenow="2"
+                                      aria-valuemin="0"
+                                      aria-valuemax="100"
+                                    >
+                                      &nbsp;Maintenance Shift-2% (2)
+                                    </div>
+                                  </div>
+
+                                  <div
+                                    class="progress"
+                                    style="
+                                      width: 98%;
+                                      margin: 10px 10px;
+                                      height: 20px;
+                                    "
+                                  >
+                                    <div
+                                      class="progress-bar bg-danger"
+                                      role="progressbar"
+                                      style="
+                                        width: 2%;
+                                        height: 20px;
+                                        font-size: 12px;
+                                        color: #000;
+                                      "
+                                      aria-valuenow="2"
+                                      aria-valuemin="0"
+                                      aria-valuemax="100"
+                                    >
+                                      &nbsp;No Production Shift-2% (2)
+                                    </div>
+                                  </div>
+
+                                  <div
+                                    class="progress"
+                                    style="
+                                      width: 98%;
+                                      margin: 10px 10px;
+                                      height: 20px;
+                                    "
+                                  >
+                                    <div
+                                      class="progress-bar bg-info"
+                                      role="progressbar"
+                                      style="
+                                        width: 9%;
+                                        height: 20px;
+                                        font-size: 12px;
+                                        color: #000;
+                                      "
+                                      aria-valuenow="9"
+                                      aria-valuemin="0"
+                                      aria-valuemax="100"
+                                    >
+                                      &nbsp;Off Shift-9% (7)
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="card" style="width: 100%">
+                              <div class="card-block">
+                                <figure class="highcharts-figure">
+                                  <div id="container"></div>
+                                </figure>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- panel-group -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="footer" style="position: fixed; text-align: center">
+          © 2020 EUTEST | Fiber Sourcing to Yarn Delivery
+        </footer>
+      </div>
+      <!-- ============================================================== -->
+      <!-- End PAge Content -->
+      <!-- ============================================================== -->
+
+      <!-- ============================================================== -->
+      <!-- End Container fluid  -->
+      <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
+
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+
+    <script src="assets/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="assets/plugins/bootstrap/js/tether.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="js/sidebarmenu.js"></script>
+
+    <script src="assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+
+    <script src="js/custom.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+    <script>
+      $(function () {
+        $("#datepickerStart")
+          .datepicker({
+            autoclose: true,
+            todayHighlight: true,
+          })
+          .datepicker("update", new Date());
+      });
+
+      $(function () {
+        $("#datepickerEnd")
+          .datepicker({
+            autoclose: true,
+            todayHighlight: true,
+          })
+          .datepicker("update", new Date());
+      });
+    </script>
+
+    <script>
+      function toggleIcon(e) {
+        $(e.target)
+          .prev(".panel-heading")
+          .find(".more-less")
+          .toggleClass("glyphicon-plus glyphicon-minus");
+      }
+      $(".panel-group").on("hidden.bs.collapse", toggleIcon);
+      $(".panel-group").on("shown.bs.collapse", toggleIcon);
+    </script>
+
+    <script type="text/javascript">
+      // Build the chart
+      Highcharts.chart("container", {
+        chart: {
+          plotBackgroundColor: null,
+          plotBorderWidth: null,
+          plotShadow: false,
+          type: "pie",
+        },
+        title: {
+          text: "Shift Report May, 2020",
+        },
+        tooltip: {
+          pointFormat: "{series.name}: <b>{point.percentage:.1f}%</b>",
+        },
+        accessibility: {
+          point: {
+            valueSuffix: "%",
+          },
+        },
+        plotOptions: {
+          pie: {
+            allowPointSelect: true,
+            cursor: "pointer",
+            dataLabels: {
+              enabled: false,
+            },
+            showInLegend: true,
+          },
+        },
+        series: [
+          {
+            name: "Brands",
+            colorByPoint: true,
+            data: [
+              {
+                name: "Production Shift",
+                y: 64,
+                sliced: true,
+                selected: true,
+              },
+              {
+                name: "Holiday Shift",
+                y: 6,
+              },
+              {
+                name: "Maintenance Shift",
+                y: 2,
+              },
+              {
+                name: "No Production Shift",
+                y: 2,
+              },
+              {
+                name: " Off Shift",
+                y: 7,
+              },
+            ],
+          },
+        ],
+      });
+    </script>
+  </body>
+</html>

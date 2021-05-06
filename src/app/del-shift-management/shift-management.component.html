@@ -1,0 +1,202 @@
+<!-- ============================================================== -->
+<!-- Preloader - style you can find in spinners.css -->
+<!-- ============================================================== -->
+<!--<div class="preloader">
+    <svg class="circular" viewBox="25 25 50 50">
+    <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+</div>-->
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<div id="main-wrapper">
+    <!-- ============================================================== -->
+    <!-- Topbar header - starts - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <app-header></app-header>
+    <!-- ============================================================== -->
+    <!-- Topbar header - ends - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div class="page-wrapper-blank">
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">  
+            <div class="wrapper d-flex align-items-stretch">
+                <!-- ============================================================== -->
+                <!-- Sidebar - Menu - Starts -->
+                <!-- ============================================================== -->
+                <app-sidebar></app-sidebar>
+                <!-- ============================================================== -->
+                <!-- Sidebar - Menu - Ends -->
+                <!-- ============================================================== -->
+                <!-- Page Content  -->
+                <div class="grid" style="width: 100%" id="PDFContent">
+                    <div class="container" style="margin-top: 20px !important; padding: 0 20px 20px 30px;">
+                        <div class="row">
+                            <div class="col-sm-4" style="border: 0px solid red;">
+                                <button type="button" class="btn btn-dark btn-lg" style="line-height: 1.5;" (click)="prevMonth();"><span class="fa fa-angle-double-left"></span>&nbsp; Previous Month</button>&nbsp;
+                                <button type="button" class="btn btn-dark btn-lg" style="line-height: 1.5;" (click)="nextMonth();">Next Month &nbsp;<span class="fa fa-angle-double-right"></span></button>
+                            </div>
+                            <div class="col-sm-6" style="border: 0px solid red;">
+                                <span class="pull-right" style="border: 0px solid green;">
+                                    <mat-form-field appearance="fill" class="example-full-width">
+                                        <mat-label>Start Date: </mat-label>
+                                        <input matInput [matDatepicker]="pickerStart">
+                                        <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
+                                        <mat-datepicker #pickerStart></mat-datepicker>
+                                    </mat-form-field>
+                                    <mat-form-field appearance="fill" class="example-full-width">
+                                        <mat-label>End Date: </mat-label>
+                                        <input matInput [matDatepicker]="pickerEnd">
+                                        <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+                                        <mat-datepicker #pickerEnd></mat-datepicker>
+                                    </mat-form-field>
+                                    <button type="button" class="btn btn-dark btn-lg" style="margin-top: -18px; line-height: 1.5" (click)="searchByDate();"><span class="fa fa-search"></span>&nbsp; Search</button>
+                                </span> 
+                            </div>       
+                            <div class="col-sm-2" style="border: 0px solid red; line-height: 1.9;">
+                                <span class="pull-right">
+                                    <button type="button" class="btn btn-dark btn-lg" style="margin-right: 4px; line-height: 1.5;" (click)="multiPagePDF();"><span class="fa fa-download"></span> &nbsp; Download PDF</button>
+                                    <!--<button type="button" class="btn btn-dark btn-lg" (click)="multiPagePDF()"><i class="fa fa-share-alt-square"></i> &nbsp; Share</button>-->
+                                </span>    
+                            </div>    
+                        </div>
+                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingOne">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="collapsed acclink">
+                                            <i class="more-less glyphicon glyphicon-minus"></i>
+                                            <span *ngIf="dataLabel === ''">&nbsp;Shift calendar for the Month of {{ monthNameArr[currentMonth] }}, {{ currentYear }}</span>
+                                            <span *ngIf="dataLabel !== ''">&nbsp;{{ dataLabel }}</span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="panel-body">         
+                                        <!-- table start -->    
+                                        <div class="table-responsive">
+                                            <table class="table" style="border: 1px solid #eee">
+                                                <thead>
+                                                    <tr style="background-color: #b2b2b2;">
+                                                        <th>&nbsp;</th>
+                                                        <th>Date</th>
+                                                        <th>WeekDay</th>
+                                                        <th>Shift-A</th>
+                                                        <th>Shift-B</th>
+                                                        <th>Shift-C</th>
+                                                        <th>&nbsp;</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="trodd" *ngFor="let productionData of allProductionSchedule">
+                                                        <td>&nbsp;</td>
+                                                        <td>{{ productionData["scheduleDate"] | date:'yyyy-mm-dd' }}</td>
+                                                        <td>{{ weekDayArray[productionData["weekDay"]] }}</td>
+                                                        <td>
+                                                            <span [hidden]="!productionData['update']">
+                                                                {{ productionData["morningShiftDetails"]["shiftType"]["name"] }}
+                                                            </span>
+                                                            <span [hidden]="!productionData['save']">
+                                                                <select class="shift-drop-down drop-down-morning-shift">
+                                                                    <option disabled>Select Shift</option>
+                                                                    <option *ngFor="let shiftType of shiftTypeArr" 
+                                                                            [value]="shiftType"
+                                                                            [attr.selected]="shiftType == productionData['morningShiftDetails']['shiftType']['name'] ? true : null">{{ shiftType }}</option>
+                                                                </select>
+                                                            </span> 
+                                                        </td>
+                                                        <td>
+                                                            <span [hidden]="!productionData['update']">
+                                                                {{ productionData['dayShiftDetails']['shiftType']['name'] }}
+                                                            </span>
+                                                            <span [hidden]="!productionData['save']">
+                                                                <select class="shift-drop-down drop-down-day-shift">
+                                                                    <option disabled>Select Shift</option>
+                                                                    <option *ngFor="let shiftType of shiftTypeArr"
+                                                                            [value]="shiftType" 
+                                                                            [attr.selected]="shiftType == productionData['dayShiftDetails']['shiftType']['name'] ? true : null">{{ shiftType }}</option>
+                                                                </select>
+                                                            </span>
+                                                        </td>
+                                                        <td>
+                                                            <span [hidden]="!productionData['update']">
+                                                                {{ productionData['nightShiftDetails']['shiftType']['name'] }}
+                                                            </span>
+                                                            <span [hidden]="!productionData['save']">
+                                                                <select class="shift-drop-down drop-down-night-shift">
+                                                                    <option disabled>Select Shift</option>
+                                                                    <option *ngFor="let shiftType of shiftTypeArr" 
+                                                                            [value]="shiftType"
+                                                                            [attr.selected]="shiftType == productionData['nightShiftDetails']['shiftType']['name'] ? true : null">{{ shiftType }}</option>
+                                                                </select>
+                                                            </span>    
+                                                        </td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-dark btn-lg" [hidden]="!productionData['update']" (click)="updateShift(productionData['id'])">
+                                                                <span class="fa fa-edit"></span> &nbsp; Update
+                                                            </button>
+                                                            <button type="button" class="btn btn-dark btn-lg" [hidden]="!productionData['save']" (click)="saveShift(productionData['id'], productionData['scheduleDate'])">
+                                                                <span class="fa fa-save"></span> &nbsp; Save
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- table end -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default" style="padding-bottom: 20px;">
+                                <div class="panel-heading" role="tab" id="headingTwo">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed acclink" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            <i class="more-less glyphicon glyphicon-plus"></i>
+                                            &nbsp; Graphical Analysis
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                    <div class="panel-body">
+                                        <div class="row" style="width: 100%; padding-bottom: 5%">
+                                <div class="col-sm-6">
+                                <div class="card" style="width: 100%;">
+                                    <div class="card-block">
+                                        <div id="chartColumnContainer" style="height: 370px; width: 100%; margin-left:2px; margin-right:2px; border:0px solid blue;"></div>		
+                                    </div>
+                                </div>	
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="card" style="width: 100%;">
+                                    <div class="card-block">
+                                        <div id="chartPiContainer" style="height: 370px; width: 100%; margin-left:2px; margin-right:2px; border:0px solid blue;"></div>
+                                    </div>
+                                </div>
+                            </div>	  
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                        </div><!-- panel-group -->
+                    </div>
+                </div>		
+            </div>						               
+        </div>
+
+        <!-- ==== Footer Starts ==== -->
+        <app-footer></app-footer>
+        <!-- ==== Footer Starts ==== -->
+    
+    </div>
+    <!-- ============================================================== -->
+    <!-- End PAge Content -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->      
+</div>
+
+<ngx-spinner></ngx-spinner>

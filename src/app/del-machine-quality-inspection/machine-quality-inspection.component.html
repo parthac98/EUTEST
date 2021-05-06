@@ -1,0 +1,148 @@
+
+<!-- ============================================================== -->
+<!-- Preloader - style you can find in spinners.css -->
+<!-- ============================================================== -->
+<!--<div class="preloader">
+    <svg class="circular" viewBox="25 25 50 50">
+        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+</div>-->
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<div id="main-wrapper">
+    <!-- ============================================================== -->
+    <!-- Topbar header - starts - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <app-header></app-header>
+    <!-- ============================================================== -->
+    <!-- Topbar header - ends - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    
+    <div class="page-wrapper-blank">
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            
+        <div class="wrapper d-flex align-items-stretch">
+        
+        <!-- ============================================================== -->
+        <!-- Sidebar - Menu - Starts -->
+        <!-- ============================================================== -->
+        <app-sidebar></app-sidebar>
+        <!-- ============================================================== -->
+        <!-- Sidebar - Menu - Ends -->
+        <!-- ============================================================== --> 
+
+    <!-- Page Content  -->
+        <div class="grid" style="width: 100%">
+            <div class="container" style="margin-top: 20px !important; padding: 0 20px 20px 30px; overflow: hidden;">
+                <div class="col-12">
+                            <h3>Machine Quality Inspection Status
+                                <span class="pull-right" style="padding-bottom: 10px;">  
+                                    <a routerLink='/machine-management' type="button" class="btn btn-dark btn-lg">
+                                        <i class="fa fa-arrow-left" aria-hidden="true"></i> &nbsp; Back
+                                    </a>
+                                </span>
+                            </h3>
+                            <hr>    
+                            <div class="row">
+                                <!--<div class="form-group col-2" style="border:0px solid blue;">
+                                    <label for="exampleFormControlSelect2">Process Type</label>
+                                    <select class="form-control specialHeight" id="exampleFormControlSelect2">
+                                        <option>Spinner</option>	
+                                        <option>Root Cutting</option>
+                                        <option>Softening & Piling</option>
+                                        <option>Teaser Carding</option>
+                                        <option>Finisher Carding</option>
+                                        <option>Spooling</option>
+                                    </select>
+                                </div>-->
+                                <div class="form-group col-2" style="border:0px solid blue;">
+                                    <label for="exampleFormControlSelect1">Machine Identifier</label>
+                                    <input type="text" id="machineIdentifierTextBox" class="form-control specialHeight" value="{{ machineInspectionDataArr?.machineIdentifier }}" disabled>
+                                    <input type="hidden" id="machineTypeIdTextBox"  value="{{ machineInspectionDataArr?.machineTypeId }}">
+                                </div>
+                                <div class="form-group col-2" style="border:0px solid blue;">
+                                    <label>Last Inspection</label>
+                                    <input type="email" class="form-control specialHeight" style="width:160px;" value="{{ machineInspectionDataArr?.inspectionDateTime | date:'MMM d, y, h:mm:ss a' }}" disabled>
+                                </div> 
+                                <div class="form-group col-8" style="border: 0px solid blue; padding-top: 25px;">	
+                                    <button class="btn pull-right btn-dark pull-right" (click)="updateMachineStatus()"><i class="fa fa-wrench" aria-hidden="true"></i> UPDATE</button>
+                                    <button class="btn pull-right btn-danger"    style="margin-right: 4px;" (click)="selectMAchineStatus('woi')">Worker Issue</button>     
+                                    <button class="btn pull-right btn-warning"   style="margin-right: 4px;" (click)="selectMAchineStatus('slsh')">Slivery Shortage</button>  
+                                    <button class="btn pull-right btn-info"      style="margin-right: 4px;" (click)="selectMAchineStatus('mec')">Mechanical</button>  
+                                    <button class="btn pull-right btn-success"   style="margin-right: 4px;" (click)="selectMAchineStatus('wrk')">Working</button>                         
+                                </div>
+                            </div>
+                            <div class="innerDiv">
+                                <div class="row scrollableDiv">
+                                    <div class="col-6" style="padding-left: 0px;">
+                                        <div class="card">
+                                            <div class="card-header"><i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                                Existing Status
+                                            </div>
+                                            <div class="card-body pull-middle">
+                                                <div class="existingStu" id="dataArea" style="pointer-events:none;">
+                                                    <div class="sidebox" *ngFor="let everyMachineStatus of everyMachineStatusArr">
+                                                        <input type="checkbox">
+                                                        <label  
+                                                        [ngClass]="{
+                                                            'mec': everyMachineStatus['machineStatus'] == 2,
+                                                            'slsh': everyMachineStatus['machineStatus'] == 3,
+                                                            'woi': everyMachineStatus['machineStatus'] == 4
+                                                        }"
+                                                        ><b>{{ everyMachineStatus["machineNumber"] }}</b></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                    <div class="col-6" style="padding-right: 0px;">
+                                        <div class="card">
+                                            <div class="card-header"><i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                                Current Status
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="existingStu" id="inspectionArea">
+                                                    <div class="sidebox singleMachine" *ngFor="let everyMachineStatus of everyMachineStatusArr" (click)="selectMachine(everyMachineStatus['machineNumber'])" id="{{ everyMachineStatus['machineNumber'] }}">
+                                                        <input type="checkbox">
+                                                        <label
+                                                        [ngClass]="{
+                                                            'mec': everyMachineStatus['machineStatus'] == 2,
+                                                            'slsh': everyMachineStatus['machineStatus'] == 3,
+                                                            'woi': everyMachineStatus['machineStatus'] == 4
+                                                        }"
+                                                        ><b>{{ everyMachineStatus["machineNumber"] }}</b></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>  
+                                    </div>
+                                </div>                  
+                            </div><br><br>
+            </div>
+        </div>		
+    </div>					                 
+        </div>
+
+    <!-- ==== Footer Starts ==== -->
+    <app-footer></app-footer>
+    <!-- ==== Footer Starts ==== -->
+
+            </div>
+            <!-- ============================================================== -->
+            <!-- End PAge Content -->
+            <!-- ============================================================== -->
+        
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================== -->
+        
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- End Page wrapper  -->
+<!-- ============================================================== -->
+
+<ngx-spinner></ngx-spinner>

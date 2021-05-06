@@ -1,0 +1,278 @@
+.preloader {
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  position: fixed;
+  z-index: 99999;
+  background: #fff; }
+  .preloader .cssload-speeding-wheel {
+    position: absolute;
+    top: calc(50% - 3.5px);
+    left: calc(50% - 3.5px); }
+
+/*******************
+/*Top bar
+*******************/
+.topbar {
+  background: #181818; box-shadow: 5px 4px 10px rgba(0, 0, 0, 0.5); }
+  .topbar .navbar-header {
+    background: rgba(0, 0, 0, 0.05); }
+  .topbar .top-navbar .navbar-header .navbar-brand .dark-logo {
+    display: none; }
+  .topbar .top-navbar .navbar-header .navbar-brand .light-logo {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.8); }
+  .topbar .navbar-light .navbar-nav .nav-item > a.nav-link {
+    color: #ffffff !important; }
+    .topbar .navbar-light .navbar-nav .nav-item > a.nav-link:hover, .topbar .navbar-light .navbar-nav .nav-item > a.nav-link:focus {
+      color: rgba(255, 255, 255, 0.8) !important; }
+
+/*******************
+/*General Elements
+*******************/
+a.link:hover, a.link:focus {
+  color: #1e88e5 !important; }
+
+.bg-theme {
+  background-color: #1e88e5 !important; }
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  background-color: #1e88e5;
+  border-color: #1e88e5; }
+
+.right-sidebar .rpanel-title {
+  background: #1e88e5; }
+
+.stylish-table tbody tr:hover, .stylish-table tbody tr.active {
+  border-left: 4px solid #1e88e5; }
+
+.text-themecolor {
+  color: #1e88e5 !important; }
+
+.profile-tab li a.nav-link.active,
+.customtab li a.nav-link.active {
+  border-bottom: 2px solid #1e88e5;
+  color: #1e88e5; }
+
+.profile-tab li a.nav-link:hover,
+.customtab li a.nav-link:hover {
+  color: #1e88e5; }
+
+/*******************
+/*Buttons
+*******************/
+.btn-themecolor,
+.btn-themecolor.disabled {
+  background: #1e88e5;
+  color: #ffffff;
+  border: 1px solid #1e88e5; }
+  .btn-themecolor:hover,
+  .btn-themecolor.disabled:hover {
+    background: #1e88e5;
+    opacity: 0.7;
+    border: 1px solid #1e88e5; }
+  .btn-themecolor.active, .btn-themecolor:focus,
+  .btn-themecolor.disabled.active,
+  .btn-themecolor.disabled:focus {
+    background: #028ee1; }
+
+/*******************
+/*sidebar navigation
+*******************/
+.sidebar-nav {
+  background: #fff; }
+  .sidebar-nav ul li a {
+    color: #607d8b; }
+    .sidebar-nav ul li a.active, .sidebar-nav ul li a:hover {
+      color: #26c6da; }
+    .sidebar-nav ul li a.active {
+      color: #263238; }
+  .sidebar-nav ul li.nav-small-cap {
+    color: #99abb4; }
+  .sidebar-nav > ul > li.active > a,
+  .sidebar-nav > ul > li.active:hover > a {
+    color: #ffffff;
+    background: #26c6da; }
+    .sidebar-nav > ul > li.active > a i,
+    .sidebar-nav > ul > li.active:hover > a i {
+      color: #ffffff; }
+    .sidebar-nav > ul > li.active > a:after,
+    .sidebar-nav > ul > li.active:hover > a:after {
+      border-color: #ffffff; }
+  .sidebar-nav > ul > li > a.active i, .sidebar-nav > ul > li > a:hover i {
+    color: #26c6da; }
+  .sidebar-nav > ul > li > a i {
+    color: #99abb4; }
+  .sidebar-nav > ul > li > a.active {
+    font-weight: 400;
+    background: #ffffff;
+    color: #1e88e5; }
+
+.card-no-border .sidebar-nav > ul > li > a.active {
+  color: #ffffff;
+  background: #26c6da; }
+  .card-no-border .sidebar-nav > ul > li > a.active i {
+    color: #ffffff; }
+  .card-no-border .sidebar-nav > ul > li > a.active:after {
+    border-color: #ffffff; }
+
+
+/*   Chart  */
+
+
+.highcharts-figure, .highcharts-data-table table {
+  min-width: 320px; 
+  max-width: 660px;
+  margin: 1em auto;
+}
+
+.highcharts-data-table table {
+	font-family: Verdana, sans-serif;
+	border-collapse: collapse;
+	border: 1px solid #EBEBEB;
+	margin: 10px auto;
+	text-align: center;
+	width: 100%;
+	max-width: 500px;
+}
+.highcharts-data-table caption {
+  padding: 1em 0;
+  font-size: 1.2em;
+  color: #555;
+}
+.highcharts-data-table th {
+	font-weight: 600;
+  padding: 0.5em;
+}
+.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+  padding: 0.5em;
+}
+.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+  background: #f8f8f8;
+}
+.highcharts-data-table tr:hover {
+  background: #f1f7ff;
+}
+ 
+
+/* Logo Text */
+
+
+ .banner p {
+             color: #aaa;
+             display: block;
+         }
+         img, span {
+            /* float:left; */
+         }
+         .banner img {
+             float: left; 
+         }
+         [class="ban1"]{
+             font-size: 22px;
+             position:relative;
+             top:0px;
+             left:0px;
+			color: #f3d7b8;
+			font-weight: bold;
+			letter-spacing: 3.5px;
+         }
+         [class="ban2"] {
+             font-size: 12px;
+             position: relative;
+             left: -81px;
+             top: 12px;
+			 color:#ffffff;
+			 letter-spacing: .5px;
+         }
+
+
+
+/* Color Status */
+.exitback{
+	opacity: 1;
+	width: 448px;
+	height: 240px;
+	background-position-x: 45%;
+	background-position-y: 20%;
+}
+
+.existingStu {
+  width: 100%;
+ 
+}
+.sidebox{
+	float: left;
+	border: 3px solid #000;
+}
+
+input[type=checkbox] {
+  display: none;
+}
+
+input[type=checkbox]+label {
+  display: inline-block;
+  padding: 5px 5px;
+  margin-bottom: 0;
+  font-size: 14px;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: #28a745;
+  background-repeat: repeat-x;
+}
+
+input[type=checkbox]:checked+label {
+  background-color: #CCC;
+  outline: 0;
+}
+input[type=checkbox]:checked+label.color {
+  background-color: #f84759;
+  outline: 0;
+}
+
+input[type=checkbox]:checked+label.color1 {
+  background-color: #ffc107;
+  outline: 0;
+}
+input[type=checkbox]:checked+label.color2 {
+  background-color: #1494a8;
+  outline: 0;
+}
+input[type=checkbox]:checked+label.color3 {
+  background-color: #28a745;
+  outline: 0;
+}
+
+.existingStu .woi{ background-color:#f84759; }
+.existingStu .slsh{ background-color:#ffc107; }
+.existingStu .mec{ background-color:#1494a8; }
+.existingStu .sel{ background-color:#ccc; }
+
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 24px;
+    line-height: 2;
+}
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+}
+
+
+

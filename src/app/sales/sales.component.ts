@@ -15,9 +15,9 @@ import { SalesFields } from '../sales/salesFields';
 export class SalesComponent implements OnInit {
 
   ELEMENT_DATA: SalesFields[];
-  //displayedColumns: string[] = ["productID", "productName", "salesQ1", "salesQ2", "salesQ3", "salesQ4", "action"];
-  displayedColumns: string[];
-  columns: any[];
+  displayedColumns: string[] = ["productID", "productName", "salesQ1", "salesQ2", "salesQ3", "salesQ4", "action"];
+  //displayedColumns: string[];
+  //columns: any[];
   dataSource = new MatTableDataSource<SalesFields>(this.ELEMENT_DATA);
   //dataSource: any [];
 
@@ -28,8 +28,8 @@ export class SalesComponent implements OnInit {
  
   ngOnInit(): void {
     this.getSalesDataService.getSalesData().subscribe(response => {
-      this.columns = response["column"];
-      this.displayedColumns = response["column"].map(c => c.field);
+      //this.columns = response["column"];
+      //this.displayedColumns = response["column"].map(c => c.field);
       this.dataSource = response["data"];
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;

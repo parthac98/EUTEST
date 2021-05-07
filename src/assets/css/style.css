@@ -11315,6 +11315,7 @@ input:checked + .slider:before {
 }
 
 .my-mat-table-left-margin {
+  margin-bottom: 24px;
   margin-left: 18px;
   width: 96%;
 }

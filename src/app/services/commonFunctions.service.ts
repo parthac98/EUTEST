@@ -6,7 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 @Injectable({
   providedIn: 'root'
 })
-export class CommonFunctions {
+export class CommonFunctionsService {
    
   constructor(private spinner: NgxSpinnerService, 
               private toastr: ToastrService) {}

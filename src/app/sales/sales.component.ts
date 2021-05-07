@@ -1,14 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-
-import { GetSalesData } from '../services/getSalesData.service';
-import { CommonFunctions } from '../services/commonFunctions.service';
-import { LoginAndToken } from "../services/loginAndToken.service";
+import { GetSalesDataService } from '../services/getSalesData.service';
 
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 
-import { SalesFields } from 'src/app/sales/salesFields';
+import { SalesFields } from '../sales/salesFields';
 
 @Component({
   selector: 'app-sales',
@@ -17,70 +14,31 @@ import { SalesFields } from 'src/app/sales/salesFields';
 })
 export class SalesComponent implements OnInit {
 
-  // all machine Data
-  machineDataArr: any;
+  ELEMENT_DATA: SalesFields[];
+  displayedColumns: string[] = ["productID", "productName", "salesQ1", "salesQ2", "salesQ3", "salesQ4", "action"];
+  dataSource = new MatTableDataSource<SalesFields>(this.ELEMENT_DATA);
   
-  // machine data 
-  //ELEMENT_DATA: MachineDetailsFields[];
-  //displayedColumns: string[] = ["machineIdentifier", "processName", "machineMakeName", "purchaseDate", "inspectedDayAndTime", "action"];
-  //dataSource = new MatTableDataSource<MachineDetailsFields>(this.ELEMENT_DATA);
+  //displayedColumns: string[];
+  //dataSource: any [];
 
-  // maretial table sort and pagination
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  
-  //constructor(private machineDataService:GetMachineData, 
-              //private router: Router,
-              //private commonFunctions:CommonFunctions,
-              //private loginAndToken: LoginAndToken) {}
 
-  constructor() {}            
-
+  constructor(private getSalesDataService:GetSalesDataService) {}            
+ 
   ngOnInit(): void {
-    //if(!this.loginAndToken.isAuthTokenValid()) {
-      //this.loginAndToken.logOut();
-    //} else {
-      //this.commonFunctions.sratrSpinner();
-      //this.machineDataService.getAllMachineData().subscribe(response => {
-        //this.machineDataArr = response;
-        //console.log("Machine all data : " + JSON.stringify(response));
-        
-        //this.dataSource.data = response as MachineDetailsFields[];
-        //this.dataSource.sort = this.sort;
-        //this.dataSource.paginator = this.paginator;
-        //this.commonFunctions.stopSpinner();
-      //});
+    this.getSalesDataService.getSalesData().subscribe(response => {
+      //this.displayedColumns = response["column"].map(c => c.header);
+
+      this.dataSource = response["data"];
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
+    });
   }
 
-  // get Single Machine Details
-  /*getSingleMachineDetails(machineID) {
-    this.commonFunctions.sratrSpinner();
-    this.machineDataService.getSingleMachineData(machineID).subscribe(response => {
-      this.machineSingleDataArr = [];
-      this.machineSingleDataArr = response;
-      console.log("m data : " + JSON.stringify(response));
-    });
-    this.commonFunctions.stopSpinner();
-  }*/
-  
-  // delete Machine
-  /*deleteMachine(machineId) {
-    this.commonFunctions.sratrSpinner();
-    if (confirm("Do you want to delete the machine ?")) {
-      this.machineDataService.deleteMachine(machineId).subscribe(response => {
-        this.commonFunctions.stopSpinner();
-        this.commonFunctions.showSuccess("Success","Deleted");
-        this.ngOnInit();
-      });
-    } else {
-      this.commonFunctions.stopSpinner();
-    }
-  }*/
-
-  // inspect machine
-  /*inspectMachine(machineIdentifier) {
-    this.machineDataService.storeMachineIdentifierID(machineIdentifier);
-    this.router.navigateByUrl('machine-quality-inspection');
-  }*/
+  public doFilter = (value: string) => {
+    console.log('doFilter : ' + value);
+    this.dataSource.filter = value.trim().toLocaleLowerCase();
+  }
 
 }

@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginAndToken {
+export class LoginAndTokenService {
 
   constructor() {}
 

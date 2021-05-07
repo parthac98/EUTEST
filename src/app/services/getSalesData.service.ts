@@ -1,18 +1,17 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
-export class GetSalesData {
+export class GetSalesDataService {
 
-  // constructor
-  constructor(private httpClient: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  private _url = "this.env.apiUrl";
+  private _url: string = "/assets/data/potato_sales.json";
 
-  getAllMachineData() {
-    return this.httpClient.get(this._url);
+  getSalesData() {
+    return this.http.get(this._url);
   }
 
 }

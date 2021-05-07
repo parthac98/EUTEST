@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { CommonFunctions } from "../services/commonFunctions.service";
-import { LoginAndToken } from "../services/loginAndToken.service";
+//import { CommonFunctions } from "../services/commonFunctions.service";
+//import { LoginAndToken } from "../services/loginAndToken.service";
 
 @Component({
   selector: 'app-home-page',

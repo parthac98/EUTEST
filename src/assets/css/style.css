@@ -11313,3 +11313,12 @@ input:checked + .slider:before {
   color: white;
   padding-top: 16px;
 }
+
+.my-mat-table-left-margin {
+  margin-left: 18px;
+  width: 96%;
+}
+
+.header-left-margin {
+  margin-left: 18px !important;
+}

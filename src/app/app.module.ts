@@ -16,6 +16,10 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 
+import { GetSalesDataService } from './services/getSalesData.service';
+import { CommonFunctionsService } from './services/commonFunctions.service';
+import { LoginAndTokenService } from "./services/loginAndToken.service";
+
 const matmodules = [
   MatNativeDateModule,
   MatFormFieldModule,
@@ -56,7 +60,7 @@ import { SalesComponent } from './sales/sales.component';
     ToastrModule.forRoot()
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [],
+  providers: [GetSalesDataService, CommonFunctionsService, LoginAndTokenService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

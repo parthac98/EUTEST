@@ -15,21 +15,21 @@ import { SalesFields } from '../sales/salesFields';
 export class SalesComponent implements OnInit {
 
   ELEMENT_DATA: SalesFields[];
-  displayedColumns: string[] = ["productID", "productName", "salesQ1", "salesQ2", "salesQ3", "salesQ4", "action"];
+  //displayedColumns: string[] = ["productID", "productName", "salesQ1", "salesQ2", "salesQ3", "salesQ4", "action"];
+  displayedColumns: string[];
+  columns: any[];
   dataSource = new MatTableDataSource<SalesFields>(this.ELEMENT_DATA);
-  
-  //displayedColumns: string[];
   //dataSource: any [];
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-
+  
   constructor(private getSalesDataService:GetSalesDataService) {}            
  
   ngOnInit(): void {
     this.getSalesDataService.getSalesData().subscribe(response => {
-      //this.displayedColumns = response["column"].map(c => c.header);
-
+      this.columns = response["column"];
+      this.displayedColumns = response["column"].map(c => c.field);
       this.dataSource = response["data"];
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;

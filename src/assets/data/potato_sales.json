@@ -2,13 +2,10 @@
     "column": [
         {"header": "Product ID", "field":"productID"},
         {"header": "Product name", "field": "productName"},
-        {"header": "Sales", "subHeaders": [
-            {"header": "2019Q1", "field":"salesQ1"},
-            {"header": "2019Q2", "field":"salesQ2"},
-            {"header": "2019Q3", "field":"salesQ3"},
-            {"header": "2019Q4", "field":"salesQ4"}
-        ]},
-	    {"header": "Total sales"}
+        {"header": "2019Q1", "field":"salesQ1"},
+        {"header": "2019Q2", "field":"salesQ2"},
+        {"header": "2019Q3", "field":"salesQ3"},
+        {"header": "2019Q4", "field":"salesQ4"}
     ],
     "data":[
         {
